@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>WordPress Fields API by sc0ttkclark</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">WordPress Fields API</h1>
+      <h2 class="project-tagline">Fields API feature project for WordPress Core (still in progress)</h2>
+      <a href="https://github.com/sc0ttkclark/wordpress-fields-api" class="btn">View on GitHub</a>
+      <a href="https://github.com/sc0ttkclark/wordpress-fields-api/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/sc0ttkclark/wordpress-fields-api/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><img src="https://raw.githubusercontent.com/sc0ttkclark/wordpress-fields-api/assets/banner-github.png" alt="WordPress Fields API"></p>
+
+<h1>
+<a id="wordpress-fields-api-v006-alpha" class="anchor" href="#wordpress-fields-api-v006-alpha" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WordPress Fields API v0.0.6 Alpha</h1>
+
+<p><a href="http://travis-ci.org/sc0ttkclark/wordpress-fields-api"><img src="https://secure.travis-ci.org/sc0ttkclark/wordpress-fields-api.png?branch=develop" alt="Travis"></a>
+<a href="https://scrutinizer-ci.com/g/sc0ttkclark/wordpress-fields-api/?branch=develop"><img src="https://scrutinizer-ci.com/g/sc0ttkclark/wordpress-fields-api/badges/quality-score.png?b=master" alt="Scrutinizer Code Quality"></a>
+<a href="http://codecov.io/github/sc0ttkclark/wordpress-fields-api?branch=develop"><img src="http://codecov.io/github/sc0ttkclark/wordpress-fields-api/coverage.svg?branch=master" alt="codecov.io"></a>
+<a href="https://github.com/sc0ttkclark/wordpress-fields-api/blob/develop/LICENSE.txt"><img src="https://img.shields.io/badge/license-GPL--2.0%2B-green.svg" alt="License"></a></p>
+
+<p>This is a core proposal for a new wide-reaching API for WordPress core. The goal is to provide an API that can be used to build forms across all areas of WordPress with a common structure. In the end, we'd like to have an API that you can build Settings Pages with that works exactly like building Meta box forms for the Post Editor or adding profile fields to the User Editor.  </p>
+
+<p>It is currently an evolving prototype that can be installed as a plugin or included as a library for easy testing and usage throughout development.</p>
+
+<p>This was initially a project of the <a href="http://make.wordpress.org/core/components/options-meta/">WordPress core Options/Metadata team</a> but is currently led by Scott Kingsley Clark and Eric Andrew Lewis with oversight by WordPress core lead developer Helen Hou-Sandí.</p>
+
+<p>Please note: This <a href="https://make.wordpress.org/core/features/">Feature Project</a> is still in the early stages of development and should not be used on production sites. It should be assumed that until the v1.0 release, the Fields API could change significantly due to core scrutiny and the final merge proposal response.</p>
+
+<ul>
+<li><a href="https://github.com/sc0ttkclark/wordpress-fields-api/blob/develop/docs/progress.md">Latest Progress Update</a></li>
+<li><a href="https://make.wordpress.org/core/tag/fields-api/">Posts about the WP Fields API on the Official WordPress.org Development blog</a></li>
+<li><a href="https://docs.google.com/document/d/17yUTO_vlkC7P4_2c6dIDxa5jQbXvfV9SofC7_GOwFME/edit">Architecture Documentation</a></li>
+</ul>
+
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h2>
+
+<ul>
+<li><a href="https://github.com/sc0ttkclark/wordpress-fields-api/blob/develop/docs/terminology.md">Terminology</a></li>
+<li><a href="https://github.com/sc0ttkclark/wordpress-fields-api/blob/develop/docs/object-types-and-subtypes.md">Object Types and Object Subtypes</a></li>
+<li><a href="https://github.com/sc0ttkclark/wordpress-fields-api/blob/develop/docs/registering-fields.md">Registering Fields (in depth)</a></li>
+<li><a href="https://github.com/sc0ttkclark/wordpress-fields-api/blob/develop/docs/creating-an-implementation.md">Creating an Implementation (advanced)</a></li>
+</ul>
+
+<h3>
+<a id="visual-structure-for-forms-sections-and-controls" class="anchor" href="#visual-structure-for-forms-sections-and-controls" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Visual Structure for Forms, Sections, and Controls</h3>
+
+<p>You can add new sections and controls to different sections of WordPress, but we're also in the process of replacing entire admin screens in WordPress with Fields API powered forms too.</p>
+
+<p><img src="https://raw.githubusercontent.com/sc0ttkclark/wordpress-fields-api/develop/docs/terminology.png" alt="Structure Example"></p>
+
+<h3>
+<a id="example-code" class="anchor" href="#example-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example Code</h3>
+
+<p><strong>User Profile Form:</strong></p>
+
+<ul>
+<li><a href="https://github.com/sc0ttkclark/wordpress-fields-api/blob/develop/docs/examples/user/_starter.php">Starter example</a></li>
+<li><a href="https://github.com/sc0ttkclark/wordpress-fields-api/blob/develop/docs/examples/user/address.php">Address section and fields example</a></li>
+</ul>
+
+<p><strong>Term Add / Edit Form:</strong></p>
+
+<ul>
+<li><a href="https://github.com/sc0ttkclark/wordpress-fields-api/blob/develop/docs/examples/term/_starter.php">Starter example</a></li>
+</ul>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
+
+<ul>
+<li>WordPress 4.4 - No previous or more recent major version can be 100% supported and confirmed as working.</li>
+<li>Fields API installed as a plugin or included as a library</li>
+</ul>
+
+<p>Every Fields API release has to be based off of the latest WordPress stable release. This means that over time, we can only support the last stable release of WordPress.</p>
+
+<p>At the end of each WP release cycle we have to merge all of the Customizer and other implementations we have with the latest changes from core.</p>
+
+<h2>
+<a id="why-a-fields-api" class="anchor" href="#why-a-fields-api" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why a Fields API?</h2>
+
+<p>There are over a hundred (I had to stop counting) plugins in the plugin repository that add meta boxes and fields to post types, settings, users, and even more if you include all of the themes and plugins that hook into the customizer. Many plugins build their own abstraction level for doing this, and custom field plugins are the biggest culprit of not following any standards for which to there is a significant need to unite these APIs to make them more consistent. At the same time, being able to provide a detailed structure for a site will take the capabilities of apps that extend WordPress (or interact with it) to the next level.</p>
+
+<p>Each of the APIs that this aims to unite all have the same essential needs. Based on the Customizer, we can enable developers to do more because they won't have to jump between different interfaces.</p>
+
+<h2>
+<a id="what-about-fields-ui" class="anchor" href="#what-about-fields-ui" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What about Fields UI?</h2>
+
+<p>I am not focusing on any UI aspects at the moment besides implementation of the API underneath getting the field data for UI to use in core itself. It will be easier to tackle the API and the UI separately for both the purpose of development and core inclusion.</p>
+
+<h2>
+<a id="where-we-need-help" class="anchor" href="#where-we-need-help" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Where we need help</h2>
+
+<p>There are still a lot of areas the API is not represented in code or in examples.</p>
+
+<p><a href="https://github.com/sc0ttkclark/wordpress-fields-api/labels/help%20wanted">Check out a full list of things we currently need help with</a></p>
+
+<ul>
+<li>Implementations are <a href="https://github.com/sc0ttkclark/wordpress-fields-api/labels/implementation">in development amongst a few contributors</a>
+</li>
+<li>We need <a href="https://github.com/sc0ttkclark/wordpress-fields-api/issues/22">use-cases and examples</a>, to be fleshed out in <code>/examples/{implementation}/{example}.md</code> inside this repo</li>
+<li>
+<a href="https://github.com/sc0ttkclark/wordpress-fields-api/issues/35">Core Proposal for Merge into WP 4.7</a> needs to be written up</li>
+</ul>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>If you are interested in contributing, feel free to contact us in #core-fields on <a href="https://make.wordpress.org/chat/">WordPress Slack</a> and we'll help you get into the mix.</p>
+
+<p>There are also <a href="https://github.com/sc0ttkclark/wordpress-fields-api/issues">GitHub issues</a> you can feel free to chime in on or provide Pull Requests to.</p>
+
+<h3>
+<a id="pull-requests" class="anchor" href="#pull-requests" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pull Requests</h3>
+
+<p>To submit a pull request, please base it off of the <code>develop</code> branch which we use for ongoing development towards the next release. The <code>master</code> branch represents the last stable beta release.</p>
+
+<h3>
+<a id="testing" class="anchor" href="#testing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Testing</h3>
+
+<p>There are a few things that can be enabled for testing purposes:</p>
+
+<ul>
+<li>
+<code>define( 'WP_FIELDS_API_EXAMPLES', true );</code> Enable example section, controls, and fields for each form.</li>
+<li>
+<code>define( 'WP_FIELDS_API_TESTING', true );</code> Enable Fields API testing, as used by below.</li>
+<li>
+<code>?fields-api-memory-test=1</code> Enable memory testing of 25 example sections, set to any number greater than 1 to customize how many example sections to add. <em>Requires WP_FIELDS_API_TESTING on</em>
+</li>
+<li>
+<code>?no-fields-api=1</code> Disable Fields API from loading, useful for memory split testing. <em>Requires WP_FIELDS_API_TESTING to be turned on</em>
+</li>
+<li>
+<code>?no-fields-api-late-init=1</code> Disable Fields API Late Init, which means when any form, section, control, or field are added, the object will be setup right away instead of only as needed by current page. Useful for memory split testing. <em>Requires WP_FIELDS_API_TESTING to be turned on</em>
+</li>
+</ul>
+
+<h3>
+<a id="related-plugins" class="anchor" href="#related-plugins" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Related Plugins</h3>
+
+<p>There are also a few other related plugins that may come in handy:</p>
+
+<ul>
+<li>
+<a href="https://github.com/sc0ttkclark/wordpress-fields-admin-ui">WP Fields Admin UI plugin</a>: Build and demo how the Fields API works with an easy to use administration interface that actually lets you create new Fields API configurations.</li>
+<li>
+<a href="https://github.com/sc0ttkclark/wordpress-fields-api-debug-bar">WP Fields API Debug Bar plugin</a>: See details on how many forms, sections, controls, fields, and other stats about your current Fields API configuration.</li>
+</ul>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LICENSE</h2>
+
+<p>GPLv2 or later. See <a href="LICENSE.txt">License</a>.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/sc0ttkclark/wordpress-fields-api">WordPress Fields API</a> is maintained by <a href="https://github.com/sc0ttkclark">sc0ttkclark</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
